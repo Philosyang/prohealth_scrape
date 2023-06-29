@@ -7,10 +7,12 @@ with open('out.csv', mode='a', encoding="utf-8") as file:
     file.write('name, link, price, rating, review_count')
     file.write('\n')
 
-for i in range(1, 5):
+page_count = 4
+
+for i in range(1, page_count+1):
 
     page = urllib.request.urlopen(
-        'https://www.prohealth.com/collections/all?page=' + str(i))   # TODO: request all 4 urls
+        'https://www.prohealth.com/collections/all?page=' + str(i))
     pr = page.read()
 
     soup = BeautifulSoup(pr, 'html.parser')
@@ -91,6 +93,6 @@ for i in range(1, 5):
             file.write(str(item)[1:-1].replace('\'', ''))
             file.write('\n')
 
-    if i < 4:
+    if i < page_count:
         print('sleep 5 seconds before next scrape...')
         time.sleep(5)
