@@ -2,8 +2,7 @@ from bs4 import BeautifulSoup
 import urllib.request
 import time
 
-# empty out.csv before running
-with open('out.csv', mode='a', encoding="utf-8") as file:
+with open('out.csv', mode='w', encoding="utf-8") as file:
     file.write('name, link, price, rating, review_count')
     file.write('\n')
 
@@ -18,9 +17,9 @@ for i in range(1, page_count+1):
     soup = BeautifulSoup(pr, 'html.parser')
     sp = soup.prettify()
 
-    path_w = 'temp.html'
-    with open(path_w, mode='w', encoding="utf-8") as f:
-        f.write(sp)
+    # path_w = 'temp.html'
+    # with open(path_w, mode='w', encoding="utf-8") as f:
+    #     f.write(sp)
 
     # temp_formatted.html:
 
