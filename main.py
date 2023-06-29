@@ -67,7 +67,7 @@ for i in range(1, 5):
         # print(ci)
         latter_url = ci[ci.index('/collections'):ci.index('">')]
 
-        item_name = ci[ci.index('">')+len('">'):ci.index('</a>')].strip()
+        item_name = ci[ci.index('">')+len('">'):ci.index('</a>')].strip().replace(',','')
 
         item_rating = float(ci[ci.index('data-average-rating="') +
                             len('data-average-rating="'):ci.index('" data-number-of-questions')])
